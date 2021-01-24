@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Boss</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .btn {
+            background-color: DodgerBlue;
+            border: none;
+            color: white;
+            padding: 12px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Darker background on mouse-over */
+        .btn:hover {
+            background-color: RoyalBlue;
+        }
+        .exit{
+            background-color: red;
+        }
+        .exit:hover{
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="background-color:#1e90ff;">Our agencies:</h1> <!--an den exei appointments den tha doylepsei-->
+<div class = "table table-responsive table-bordered table-striped">
+    <table style="width:100%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${agencies.empty}">
+            <td colspan="2"> No Appointments Made </td>
+        </tr>
+        <tr th:each="agencies : ${agencies}">
+            <td><span th:text="${agencies.agencyName}"> Name </span></td>
+            <td><span th:text="${agencies.agencyLocation}"> Location </span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
